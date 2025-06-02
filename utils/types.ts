@@ -8,7 +8,7 @@ export type PropertyCardProps = {
   id: string;
   name: string;
   tagline: string;
-  country: string;
+  county: string;
   price: number;
 };
 

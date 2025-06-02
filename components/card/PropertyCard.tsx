@@ -8,7 +8,7 @@ import { formatCurrency } from '@/utils/format';
 
 function PropertyCard({ property }: { property: PropertyCardProps }) {
   const { name, image, price } = property;
-  const { country, id: propertyId, tagline } = property;
+  const { county, id: propertyId, tagline } = property;
 
   return (
     <article className='group relative'>
@@ -38,7 +38,7 @@ function PropertyCard({ property }: { property: PropertyCardProps }) {
             night
           </p>
           {/* country and flag */}
-          <CountyName countryCode={country} />
+          <CountyName countyCode={county} />
         </div>
       </Link>
       <div className='absolute top-5 right-5 z-5'>

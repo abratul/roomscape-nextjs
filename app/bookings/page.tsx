@@ -43,7 +43,7 @@ async function BookingsPage() {
         <TableBody>
           {bookings.map((booking) => {
             const { id, orderTotal, totalNights, checkIn, checkOut } = booking;
-            const { id: propertyId, name, country } = booking.property;
+            const { id: propertyId, name, county } = booking.property;
             const startDate = formatDate(checkIn);
             const endDate = formatDate(checkOut);
             return (
@@ -57,7 +57,7 @@ async function BookingsPage() {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <CountyName countryCode={country} />
+                  <CountyName countyCode={county} />
                 </TableCell>
                 <TableCell>{totalNights}</TableCell>
                 <TableCell>{formatCurrency(orderTotal)}</TableCell>

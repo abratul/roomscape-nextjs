@@ -1,7 +1,7 @@
 import FavoriteToggleButton from '@/components/card/FavoriteToggleButton';
 import PropertyRating from '@/components/card/PropertyRating';
 import BreadCrumbs from '@/components/properties/BreadCrumbs';
-import ImageContainer from '@/components/properties/ImageContainer';
+import ImageContainer from '@/components/properties/MatterportContainer';
 import PropertyDetails from '@/components/properties/PropertyDetails';
 import ShareButton from '@/components/properties/ShareButton';
 import UserInfo from '@/components/properties/UserInfo';
@@ -15,7 +15,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import SubmitReview from '@/components/reviews/SubmitReview';
 import PropertyReviews from '@/components/reviews/PropertyReviews';
 import { auth } from '@clerk/nextjs/server';
-import MatterportContainer from '@/components/properties/ImageContainer';
+import MatterportContainer from '@/components/properties/MatterportContainer';
 const DynamicMap = dynamic(
   () => import('@/components/properties/PropertyMap'),
   {

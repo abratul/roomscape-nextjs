@@ -15,6 +15,7 @@ import { redirect } from 'next/navigation';
 import { type Amenity } from '@/utils/amenities';
 import ImageInputContainer from '@/components/form/ImageInputContainer';
 import CountiesInput from '@/components/form/CountiesInput';
+import MatterportContainer from '@/components/properties/MatterportContainer';
 
 async function EditRentalPage({ params }: { params: { id: string } }) {
   const property = await fetchRentalDetails(params.id);
@@ -54,6 +55,12 @@ async function EditRentalPage({ params }: { params: { id: string } }) {
             <PriceInput defaultValue={property.price} />
             <CategoriesInput defaultValue={property.category} />
             <CountiesInput defaultValue={property.county} />
+            <FormInput
+              name="matterportId"
+              type="text"
+              label="Matterport Model ID"
+              defaultValue={property.matterportId}
+            />  
           </div>
 
           <TextAreaInput

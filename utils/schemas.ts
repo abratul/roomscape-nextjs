@@ -77,9 +77,7 @@ export const propertySchema = z.object({
     }
   ),
   county: z.string(),
-  matterportId: z
-  .string()
-  .regex(/^[a-zA-Z0-9]{9,13}$/, {
+  matterportId: z.string().regex(/^[a-zA-Z0-9]{9,13}$/, {
     message: 'Matterport model ID must be 9 to 13 alphanumeric characters.',
   }),
   guests: z.coerce.number().int().min(0, {

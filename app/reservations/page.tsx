@@ -1,7 +1,7 @@
 import { fetchReservations } from '@/utils/actions';
 import Link from 'next/link';
 import EmptyList from '@/components/home/EmptyList';
-import CountryFlagAndName from '@/components/card/CountryFlagAndName';
+import CountyName from '@/components/card/CountyName';
 
 import { formatDate, formatCurrency } from '@/utils/format';
 import {
@@ -30,7 +30,7 @@ async function ReservationsPage() {
           <TableHeader>
             <TableRow>
               <TableHead>Property Name</TableHead>
-              <TableHead>Country</TableHead>
+              <TableHead>County</TableHead>
               <TableHead>Nights</TableHead>
               <TableHead>Total</TableHead>
               <TableHead>Check In</TableHead>
@@ -40,7 +40,7 @@ async function ReservationsPage() {
           <TableBody>
             {reservations.map((item) => {
               const { id, orderTotal, totalNights, checkIn, checkOut } = item;
-              const { id: propertyId, name, country } = item.property;
+              const { id: propertyId, name, county } = item.property;
 
               const startDate = formatDate(checkIn);
               const endDate = formatDate(checkOut);
@@ -55,7 +55,7 @@ async function ReservationsPage() {
                     </Link>
                   </TableCell>
                   <TableCell>
-                    <CountryFlagAndName countryCode={country} />
+                    <CountyName countyCode={county} />
                   </TableCell>
                   <TableCell>{totalNights}</TableCell>
                   <TableCell>{formatCurrency(orderTotal)}</TableCell>

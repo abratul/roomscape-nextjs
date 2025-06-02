@@ -32,7 +32,7 @@ model Property {
   category    String
   image       String
   matterportId String
-  country     String
+  county     String
   description String
   price       Int
   guests      Int

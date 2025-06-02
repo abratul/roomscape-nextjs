@@ -2557,7 +2557,7 @@ export default PropertiesContainer;
 ### Card Components
 
 - components/card
-  - CountryFlagAndName.tsx
+  - CountyName.tsx
   - FavoriteToggleButton.tsx
   - FavoriteToggleForm.tsx
   - LoadingCards.tsx
@@ -2603,7 +2603,7 @@ export const formatCurrency = (amount: number | null) => {
 ```tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import CountryFlagAndName from './CountryFlagAndName';
+import CountyName from './CountyName';
 import PropertyRating from './PropertyRating';
 import FavoriteToggleButton from './FavoriteToggleButton';
 import { PropertyCardProps } from '@/utils/types';
@@ -2706,12 +2706,12 @@ export default FavoriteToggleButton;
 </div>
 ```
 
-### CountryFlagAndName
+### CountyName
 
 ```tsx
 import { findCountryByCode } from '@/utils/countries';
 
-function CountryFlagAndName({ countryCode }: { countryCode: string }) {
+function CountyName({ countryCode }: { countryCode: string }) {
   const validCountry = findCountryByCode(countryCode);
   const countryName =
     validCountry!.name.length > 20
@@ -2723,11 +2723,11 @@ function CountryFlagAndName({ countryCode }: { countryCode: string }) {
     </span>
   );
 }
-export default CountryFlagAndName;
+export default CountyName;
 ```
 
 ```tsx
-<CountryFlagAndName countryCode={country} />
+<CountyName countryCode={country} />
 ```
 
 ### Suspense
@@ -3616,7 +3616,7 @@ const markerIcon = icon({
 });
 
 import { findCountryByCode } from '@/utils/countries';
-import CountryFlagAndName from '../card/CountryFlagAndName';
+import CountyName from '../card/CountyName';
 import Title from './Title';
 
 function PropertyMap({ countryCode }: { countryCode: string }) {
@@ -3627,7 +3627,7 @@ function PropertyMap({ countryCode }: { countryCode: string }) {
     <div className='mt-4'>
       <div className='mb-4 '>
         <Title text='Where you will be staying' />
-        <CountryFlagAndName countryCode={countryCode} />
+        <CountyName countryCode={countryCode} />
       </div>
       <MapContainer
         scrollWheelZoom={false}
@@ -4996,7 +4996,7 @@ Bookings.tsx
 
 ```tsx
 import EmptyList from '@/components/home/EmptyList';
-import CountryFlagAndName from '@/components/card/CountryFlagAndName';
+import CountyName from '@/components/card/CountyName';
 import Link from 'next/link';
 
 import { formatDate, formatCurrency } from '@/utils/format';
@@ -5027,7 +5027,7 @@ async function BookingsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Property Name</TableHead>
-            <TableHead>Country</TableHead>
+            <TableHead>County</TableHead>
             <TableHead>Nights</TableHead>
             <TableHead>Total</TableHead>
             <TableHead>Check In</TableHead>
@@ -5052,7 +5052,7 @@ async function BookingsPage() {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <CountryFlagAndName countryCode={country} />
+                  <CountyName countryCode={country} />
                 </TableCell>
                 <TableCell>{totalNights}</TableCell>
                 <TableCell>{formatCurrency(orderTotal)}</TableCell>
@@ -5593,7 +5593,7 @@ export const fetchReservations = async () => {
 import { fetchReservations } from '@/utils/actions';
 import Link from 'next/link';
 import EmptyList from '@/components/home/EmptyList';
-import CountryFlagAndName from '@/components/card/CountryFlagAndName';
+import CountyName from '@/components/card/CountyName';
 
 import { formatDate, formatCurrency } from '@/utils/format';
 import {
@@ -5623,7 +5623,7 @@ async function ReservationsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Property Name</TableHead>
-            <TableHead>Country</TableHead>
+            <TableHead>County</TableHead>
             <TableHead>Nights</TableHead>
             <TableHead>Total</TableHead>
             <TableHead>Check In</TableHead>
@@ -5647,7 +5647,7 @@ async function ReservationsPage() {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <CountryFlagAndName countryCode={country} />
+                  <CountyName countryCode={country} />
                 </TableCell>
                 <TableCell>{totalNights}</TableCell>
                 <TableCell>{formatCurrency(orderTotal)}</TableCell>

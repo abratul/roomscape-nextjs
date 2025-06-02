@@ -5,10 +5,10 @@ import { SubmitButton } from '@/components/form/Buttons';
 import PriceInput from '@/components/form/PriceInput';
 import CategoriesInput from '@/components/form/CategoriesInput';
 import TextAreaInput from '@/components/form/TextAreaInput';
-import CountriesInput from '@/components/form/CountriesInput';
 import ImageInput from '@/components/form/ImageInput';
 import CounterInput from '@/components/form/CounterInput';
 import AmenitiesInput from '@/components/form/AmenitiesInput';
+import CountiesInput from '@/components/form/CountiesInput';
 function CreatePropertyPage() {
   return (
     <section>
@@ -23,7 +23,7 @@ function CreatePropertyPage() {
               name='name'
               type='text'
               label='Name (20 limit)'
-              defaultValue='Cabin in Latvia'
+              defaultValue='Cabin in Alba'
             />
             <FormInput
               name='tagline'
@@ -42,7 +42,7 @@ function CreatePropertyPage() {
             labelText='Description (10 - 1000 words)'
           />
           <div className='grid sm:grid-cols-2 gap-8 mt-4'>
-            <CountriesInput />
+            <CountiesInput />
             <ImageInput />
           </div>
           <div className='grid sm:grid-cols-2 gap-8 mt-4'>

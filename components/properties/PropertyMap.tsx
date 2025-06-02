@@ -9,19 +9,21 @@ const markerIcon = icon({
   iconSize: [20, 30],
 });
 
-import { findCountryByCode } from '@/utils/countries';
-import CountryFlagAndName from '../card/CountryFlagAndName';
 import Title from './Title';
+import { findCountyByCode } from '@/utils/counties';
 
-function PropertyMap({ countryCode }: { countryCode: string }) {
-  const defaultLocation = [51.505, -0.09] as [number, number];
-  const location = findCountryByCode(countryCode)?.location as [number, number];
+function PropertyMap({ countyCode  }: {  countyCode : string }) {
+  debugger;
+  const defaultLocation = [45.9432, 24.9668] as [number, number];
+  const location = findCountyByCode(countyCode )?.location as [number, number];
 
-  return (
+    return (
     <div className='mt-4'>
       <div className='mb-4'>
         <Title text='Where you will be staying' />
-        <CountryFlagAndName countryCode={countryCode} />
+        <span className='text-lg font-medium'>
+          {findCountyByCode(countyCode)?.name || 'Romania'}
+        </span>
       </div>
       <MapContainer
         scrollWheelZoom={false}

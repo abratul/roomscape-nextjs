@@ -1,5 +1,4 @@
 import { Label } from '@/components/ui/label';
-import { formattedCountries } from '@/utils/countries';
 import {
   Select,
   SelectContent,
@@ -7,18 +6,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { formattedCounties } from '@/utils/counties';
 
-const name = 'country';
+const name = 'county';
 
-function CountriesInput({ defaultValue }: { defaultValue?: string }) {
+function CountiesInput({ defaultValue }: { defaultValue?: string }) {
   return (
     <div className='mb-2'>
       <Label htmlFor={name} className='capitalize'>
-        country
+        county
       </Label>
 
       <Select
-        defaultValue={defaultValue || formattedCountries[0].code}
+        defaultValue={defaultValue || formattedCounties[0].code}
         name={name}
         required
       >
@@ -26,11 +26,11 @@ function CountriesInput({ defaultValue }: { defaultValue?: string }) {
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          {formattedCountries.map((item) => {
+          {formattedCounties.map((item) => {
             return (
               <SelectItem key={item.code} value={item.code}>
                 <span className='flex items-center gap-2'>
-                  {item.flag} {item.name}
+                  {item.name}
                 </span>
               </SelectItem>
             );
@@ -40,4 +40,4 @@ function CountriesInput({ defaultValue }: { defaultValue?: string }) {
     </div>
   );
 }
-export default CountriesInput;
+export default CountiesInput;

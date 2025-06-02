@@ -76,7 +76,7 @@ export const propertySchema = z.object({
       message: 'description must be between 10 and 1000 words.',
     }
   ),
-  country: z.string(),
+  county: z.string(),
   matterportId: z
   .string()
   .regex(/^[a-zA-Z0-9]{9,13}$/, {

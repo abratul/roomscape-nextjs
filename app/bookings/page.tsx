@@ -1,5 +1,5 @@
 import EmptyList from '@/components/home/EmptyList';
-import CountryFlagAndName from '@/components/card/CountryFlagAndName';
+import CountyName from '@/components/card/CountyName';
 import Link from 'next/link';
 
 import { formatDate, formatCurrency } from '@/utils/format';
@@ -32,7 +32,7 @@ async function BookingsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Property Name</TableHead>
-            <TableHead>Country</TableHead>
+            <TableHead>County</TableHead>
             <TableHead>Nights</TableHead>
             <TableHead>Total</TableHead>
             <TableHead>Check In</TableHead>
@@ -57,7 +57,7 @@ async function BookingsPage() {
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <CountryFlagAndName countryCode={country} />
+                  <CountyName countryCode={country} />
                 </TableCell>
                 <TableCell>{totalNights}</TableCell>
                 <TableCell>{formatCurrency(orderTotal)}</TableCell>

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import CountryFlagAndName from './CountryFlagAndName';
+import CountyName from './CountyName';
 import PropertyRating from './PropertyRating';
 import FavoriteToggleButton from './FavoriteToggleButton';
 import { PropertyCardProps } from '@/utils/types';
@@ -38,7 +38,7 @@ function PropertyCard({ property }: { property: PropertyCardProps }) {
             night
           </p>
           {/* country and flag */}
-          <CountryFlagAndName countryCode={country} />
+          <CountyName countryCode={country} />
         </div>
       </Link>
       <div className='absolute top-5 right-5 z-5'>

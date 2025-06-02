@@ -15,6 +15,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import SubmitReview from '@/components/reviews/SubmitReview';
 import PropertyReviews from '@/components/reviews/PropertyReviews';
 import { auth } from '@clerk/nextjs/server';
+import MatterportContainer from '@/components/properties/ImageContainer';
 const DynamicMap = dynamic(
   () => import('@/components/properties/PropertyMap'),
   {
@@ -54,7 +55,7 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
           <FavoriteToggleButton propertyId={property.id} />
         </div>
       </header>
-      <ImageContainer mainImage={property.image} name={property.name} />
+      <MatterportContainer matteportId={property.matterportId} name={property.name} />
       <section className='lg:grid lg:grid-cols-12 gap-x-12 mt-12'>
         <div className='lg:col-span-8'>
           <div className='flex gap-x-4 items-center'>

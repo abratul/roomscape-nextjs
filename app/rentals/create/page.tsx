@@ -45,6 +45,14 @@ function CreatePropertyPage() {
             <CountriesInput />
             <ImageInput />
           </div>
+          <div className='grid sm:grid-cols-2 gap-8 mt-4'>
+            <FormInput
+              name="matterportId"
+              type="text"
+              label="Matterport Model ID"
+              placeholder="e.g. fUSngcKz1W7"
+            />  
+          </div>
           <h3 className='text-lg mt-8 mb-4 font-medium'>
             Accommodation Details
           </h3>

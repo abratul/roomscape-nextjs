@@ -1,23 +1,21 @@
-import Image from 'next/image';
 
-function ImageContainer({
-  mainImage,
-  name,
+function MatterportContainer({
+  matteportId,
 }: {
-  mainImage: string;
+  matteportId: string;
   name: string;
 }) {
   return (
     <section className='h-[300px] md:h-[500px] relative mt-8'>
-      <Image
-        src={mainImage}
-        fill
-        sizes='100vw'
-        alt={name}
-        className='object-cover rounded'
-        priority
+      <iframe
+        src={`https://my.matterport.com/show/?m=${matteportId}`}
+        title="Matterport 3D Tour"
+        allowFullScreen
+        loading="lazy"
+        className="absolute top-0 left-0 w-full h-full"
+        style={{ border: 0 }}
       />
     </section>
   );
 }
-export default ImageContainer;
+export default MatterportContainer;

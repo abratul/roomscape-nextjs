@@ -7,14 +7,14 @@ export const formatDate = (date: Date, onlyMonth?: boolean) => {
     options.day = 'numeric';
   }
 
-  return new Intl.DateTimeFormat('en-US', options).format(date);
+  return new Intl.DateTimeFormat('ro-RO', options).format(date);
 };
 
 export const formatCurrency = (amount: number | null) => {
   const value = amount || 0;
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'EUR',
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(value);

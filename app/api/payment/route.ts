@@ -42,7 +42,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         {
           quantity: 1,
           price_data: {
-            currency: 'usd',
+            currency: 'eur',
             product_data: {
               name: `${name}`,
               images: [image],

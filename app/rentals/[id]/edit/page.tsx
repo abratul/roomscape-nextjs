@@ -8,13 +8,13 @@ import FormInput from '@/components/form/FormInput';
 import CategoriesInput from '@/components/form/CategoriesInput';
 import PriceInput from '@/components/form/PriceInput';
 import TextAreaInput from '@/components/form/TextAreaInput';
-import CountriesInput from '@/components/form/CountriesInput';
 import CounterInput from '@/components/form/CounterInput';
 import AmenitiesInput from '@/components/form/AmenitiesInput';
 import { SubmitButton } from '@/components/form/Buttons';
 import { redirect } from 'next/navigation';
 import { type Amenity } from '@/utils/amenities';
 import ImageInputContainer from '@/components/form/ImageInputContainer';
+import CountiesInput from '@/components/form/CountiesInput';
 
 async function EditRentalPage({ params }: { params: { id: string } }) {
   const property = await fetchRentalDetails(params.id);
@@ -53,7 +53,7 @@ async function EditRentalPage({ params }: { params: { id: string } }) {
             />
             <PriceInput defaultValue={property.price} />
             <CategoriesInput defaultValue={property.category} />
-            <CountriesInput defaultValue={property.country} />
+            <CountiesInput defaultValue={property.county} />
           </div>
 
           <TextAreaInput

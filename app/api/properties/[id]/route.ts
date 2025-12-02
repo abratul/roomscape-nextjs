@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { fetchPropertyDetails } from "@/utils/actions";
 
 export async function GET(
-  req: Request,
   { params }: { params: { id: string } }
 ) {
   try {

@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { deleteRentalAction } from "@/utils/actions";
 
 export async function DELETE(
+  req: Request,
   { params }: { params: { id: string } }
 ) {
   const { userId } = auth();

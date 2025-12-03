@@ -28,7 +28,10 @@ export async function POST(req: Request) {
     const formData = await req.formData();
     const result = await createPropertyAction({}, formData);
     return NextResponse.json(result);
-  } catch (error) {
+  } catch (error: any) {
+    if (error.message === 'NEXT_REDIRECT' || (error.digest && error.digest.startsWith('NEXT_REDIRECT'))) {
+      return NextResponse.json({ message: 'Rental created successfully' });
+    }
     return NextResponse.json({ error: "Failed to create rental" }, { status: 500 });
   }
 }

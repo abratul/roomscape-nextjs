@@ -15,7 +15,6 @@ import { redirect } from 'next/navigation';
 import { type Amenity } from '@/utils/amenities';
 import ImageInputContainer from '@/components/form/ImageInputContainer';
 import CountiesInput from '@/components/form/CountiesInput';
-import MatterportContainer from '@/components/properties/MatterportContainer';
 
 async function EditRentalPage({ params }: { params: { id: string } }) {
   const property = await fetchRentalDetails(params.id);

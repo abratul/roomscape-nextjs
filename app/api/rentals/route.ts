@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   
   try {
     const formData = await req.formData();
-    const result = await createPropertyAction({}, formData);
+    const result = await createPropertyAction({}, formData, true);
     return NextResponse.json(result);
   } catch (error: any) {
     if (error.message === 'NEXT_REDIRECT' || (error.digest && error.digest.startsWith('NEXT_REDIRECT'))) {

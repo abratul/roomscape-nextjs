@@ -144,9 +144,11 @@ export const updateProfileImageAction = async (
 
 export const createPropertyAction = async (
   prevState: any,
-  formData: FormData
-): Promise<{ message: string }> => {
+  formData: FormData,
+  isApiCall: boolean = false
+): Promise<{id: string, message: string } | { message: string }> => {
   const user = await getAuthUser();
+  let property;
   try {
     const rawData = Object.fromEntries(formData);
     const file = formData.get('image') as File;
@@ -156,7 +158,7 @@ export const createPropertyAction = async (
     const validatedFile = validateWithZodSchema(imageSchema, { image: file });
     const fullPath = await uploadImage(validatedFile.image);
 
-    await db.property.create({
+    property = await db.property.create({
       data: {
         ...validatedFields,
         image: fullPath,
@@ -165,6 +167,13 @@ export const createPropertyAction = async (
     });
   } catch (error) {
     return renderError(error);
+  }
+
+  if (isApiCall) {
+    return {
+      id: property.id,
+      message: 'Rental created successfully'
+    };
   }
   redirect('/');
 };

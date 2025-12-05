@@ -27,10 +27,18 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData();
     const result = await createPropertyAction({}, formData, true);
-    return NextResponse.json(result);
+    
+    if ('id' in result && result.id) {
+      return NextResponse.json(result);
+    }
+    
+    return NextResponse.json(
+      { error: result.message || "Failed to create rental" }, 
+      { status: 400 }
+    );
   } catch (error: any) {
     if (error.message === 'NEXT_REDIRECT' || (error.digest && error.digest.startsWith('NEXT_REDIRECT'))) {
-      return NextResponse.json({ message: 'Rental created successfully' });
+      return NextResponse.json({ error: "Unexpected redirect error" }, { status: 500 });
     }
     return NextResponse.json({ error: "Failed to create rental" }, { status: 500 });
   }
